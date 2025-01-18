@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -8,7 +6,8 @@
 	<meta name="keywords" content="Memfístera">
 	<meta name="description" content="Memfístera">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=1">
-	<link href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAQZJREFUOE9tU0ECAkEIwgf22XqgJaAzVnuo1WUUkQnwiQxk/QAJRAQyEwFmnQMyCyqMn4yKK+Uc4zo6qGAZAvY39Qulq+aF6PN3typNSBps7k1FdaYxozPCqpQRYiREcei4witYNcmgJ20JeFwiaubryBkYOntJw28GmNzRVcwI8Lxbdzfv+tPyR/3mo+4m52B4W4ORrmk58X8Z8shWQfE1hpQdWWactQ3OaR+YY1CqL7OdfdNgXbj8GsoU4gngsUgMyXPqyNqmwmuMem3GLSlYGaOnIzttXUT432scmF9ced8LUzzitpG88CXtdoa7XtdK89t64k+Py5ba97JS30VvjBN87v0btv6Yy9+IHB4AAAAASUVORK5CYII=" rel="icon" type="image/x-icon">
+	<link id="favicon-dark" rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAATtJREFUOE9lUwluxEAMsqfv62fb962pANuT7kaRkowvDCQjIgAg82QE+OkrGehXviuP50yD4ihAITZgcp7PJhnJuPopN3QSLw71nIxCuRMP2ESjGGHqwLiIgEKwgjcL2cCYe0aeHKTMSMw2iGrYSGPpFdxxVtR0tRgyjBXFQZePZBNmvcpLCjDShxFxTmZvE9U7e4oRiQM1mGCvYHDemZxw5ym4pQ98UoHZXINIJlvPQX21BHlZTUTi6hkOPvzQSPRQlYt3hUuKUQx8aa9dZ9po1E5AxPl6Y7qqCGC7T/Md0sSNSm0kOfEHEd9D3Fqi5TRHz2uN8XutvPErpWU0q/RAM7Uyr0ts5Sc11Jf/RTuzSSOSy9KuSuu3zo3s8H+Yff6Bd67bWnYlUmq6kfKxeJXPx89EU+n7Wpp2/wNnONqLr85+wAAAAABJRU5ErkJggg==" type="image/x-icon">
+	<link id="favicon-light" rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAQZJREFUOE9tU0ECAkEIwgf22XqgJaAzVnuo1WUUkQnwiQxk/QAJRAQyEwFmnQMyCyqMn4yKK+Uc4zo6qGAZAvY39Qulq+aF6PN3typNSBps7k1FdaYxozPCqpQRYiREcei4witYNcmgJ20JeFwiaubryBkYOntJw28GmNzRVcwI8Lxbdzfv+tPyR/3mo+4m52B4W4ORrmk58X8Z8shWQfE1hpQdWWactQ3OaR+YY1CqL7OdfdNgXbj8GsoU4gngsUgMyXPqyNqmwmuMem3GLSlYGaOnIzttXUT432scmF9ced8LUzzitpG88CXtdoa7XtdK89t64k+Py5ba97JS30VvjBN87v0btv6Yy9+IHB4AAAAASUVORK5CYII=" type="image/x-icon">
 	<style>
 
 	::-webkit-scrollbar{
@@ -97,5 +96,30 @@
 	<!-- <span>Cra 4 # 13-12 B. Santa Teresa, Garzón - H.</span> -->
 
 
+
+
+<script>
+
+	var media_query = window.matchMedia( '(prefers-color-scheme: dark)' ),
+		set_favicon = ()=>{
+							var dark_mode 		= window.matchMedia( '(prefers-color-scheme: dark)' ).matches,
+								favicon_light 	= document.getElementById( 'favicon-light' ),
+								favicon_dark 	= document.getElementById( 'favicon-dark' );
+
+							if( dark_mode ){
+											favicon_light.setAttribute( 'rel', '' );
+											favicon_dark.setAttribute( 'rel', 'icon' );
+											}
+										else{
+											favicon_dark.setAttribute( 'rel', '' );
+											favicon_light.setAttribute( 'rel', 'icon' );
+											}
+							};
+
+
+	media_query.addEventListener( 'change', set_favicon );
+	set_favicon();
+
+</script>
 </body>
 </html>
